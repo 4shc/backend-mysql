@@ -5,6 +5,8 @@ import BD from '../config/db.js';
 
 // Importamos el archivo de las rutas 
 import citasRoutes from '../routes/RoutesCitas.js';
+// Importamos el archivo de las rutas de nuestro nuevo mod.
+import userRoutes from '../routes/RoutesUsuarios.js';
 
 
 // Definimos la variable para trabajar con Express
@@ -12,12 +14,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/citas', citasRoutes );
+app.use('/user', userRoutes );
 
 
 // Autenticación BD
 try {
   await BD.authenticate();
-  console.log('Connection has been established successfully.');
+  console.log('Conexión con la base de datos exitosa. Puedes sonreír 😎');
 } catch (error) {
   console.error('Unable to connect to the database:', error);
 }
