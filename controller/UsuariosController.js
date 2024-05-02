@@ -14,7 +14,6 @@ export const agregarUser = async (req, res) => {
   }
 }
 
-// Sesión 29
 // Función para mostrar todos lss usuarios
 export const getAllUser = async (req, res) =>{
   try {

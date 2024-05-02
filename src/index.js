@@ -8,14 +8,13 @@ import citasRoutes from '../routes/RoutesCitas.js';
 // Importamos el archivo de las rutas de nuestro nuevo mod.
 import userRoutes from '../routes/RoutesUsuarios.js';
 
-
 // Definimos la variable para trabajar con Express
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 app.use('/citas', citasRoutes );
 app.use('/user', userRoutes );
-
 
 // Autenticación BD
 try {
@@ -25,12 +24,10 @@ try {
   console.error('Unable to connect to the database:', error);
 }
 
-
 // Muestra mensaje en el navegador
 app.get('/', (req, res) => {
   res.send("Hola mundo");
 })
-
 
 // Configuración del puerto del servidor
 app.listen(5000, () => {
